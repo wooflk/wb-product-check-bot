@@ -1,0 +1,1 @@
+# wb-product-check-bot
