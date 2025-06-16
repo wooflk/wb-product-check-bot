@@ -17,17 +17,17 @@ def send_welcome(message):
         if(login(message.chat.id)):
             bot.reply_to(message, f'hewwooooooo, отправь пожожта артикул с вб!!!!')
         else:
-            bot.send_maessage(message.chat.id, 'naaaaaaaaawr')
+            bot.send_message(message.chat.id, 'naaaaaaaaawr')
 
 @bot.message_handler(content_types = ['text'])
 def analitycs(message):
     if not login(message.chat.id):
-        bot.send_maessage(message.chat.id, 'доступа нет((((')
+        bot.send_message(message.chat.id, 'доступа нет((((')
         return
     try:
         article = message.text.strip()
         info = get_product(article)
-        bot.send_message(message.chat.id, info)
+        bot.send_message(message.chat.id, info, parse_mode = "Markdown")
     except ValueError:
         bot.send_message(message.chat.id, "ошибка, введите артикул")
 
